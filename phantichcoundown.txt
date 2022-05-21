@@ -1,0 +1,13 @@
+khi bấm dừng công việc reset time lại từ đầu
+
+
+- khi start thì component bắt đầu chạy sau đó sẽ lưu mốc time now lúc start vào DB.
++ lần render đầu tiên: useEffect handle ta sẽ lưu mốc time start vào DB.
++ khi đếm ngược ta sẽ lấy time start + time coundown - time now
+
+
+popup đầu tiên: filter=> data
+
+khi nhấn chooseTime => popup restart lại lấy value ban đầu
+
+-> làm sao để: khi edit xong sẽ lưu data lại=> khi popup restart sẽ thay thế popup cũ ???

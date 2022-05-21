@@ -1,0 +1,9 @@
+cách setup redux :
+- npm install redux-persist
+- npm install @reduxjs/toolkit
+- index.js --> setup provider
+
+
+file app.js thường sẽ là file quản trị nếu muốn sử dụng global app thì import trong file này (tùy cty hoặc doanh nghiệp)
+
+
