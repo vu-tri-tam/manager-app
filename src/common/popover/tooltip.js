@@ -62,10 +62,8 @@ export default function FadeMenu({ idUser }) {
 
             <Menu
                 id="fade-menu"
-                MenuListProps={{
-                    'aria-labelledby': 'fade-button',
-                }}
-                anchorEl={anchorEl}
+
+                // anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
                 TransitionComponent={Fade}

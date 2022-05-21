@@ -163,10 +163,10 @@ a{
 .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper{
   opacity: 1;
     transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    top: 7%!important;
+    top: 6%!important;
     left: 66%!important;
     transform-origin: 0px 0px;
-    padding: 1%!important;
+    padding: 0.5%!important;
 }
 
  .colorActive{
