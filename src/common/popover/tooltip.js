@@ -52,22 +52,15 @@ export default function FadeMenu({ idUser }) {
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                 <Badge badgeContent={'!'} color="error">
-
                     <NotificationsIcon onClick={handleClick} />
-
-
                 </Badge>
-
             </IconButton>
-
             <Menu
                 id="fade-menu"
-
-                // anchorEl={anchorEl}
+                anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
                 TransitionComponent={Fade}
-
             >
                 <div className='mb-2'>
                     <strong><NotificationsActiveIcon sx={{ color: pink[500] }} /></strong> Bạn có {workNotFinished?.length} công việc chưa hoàn thành.

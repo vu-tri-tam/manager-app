@@ -286,7 +286,6 @@ export default function ResponsiveDrawer(props) {
                                 <Box sx={{ position: 'relative' }} className="appBarIcons">
                                     {/* <Box sx={{ display: { md: 'flex' } }} > */}
                                     <Tooltip idUser={authLogin?.Auth} />
-
                                     <IconButton
                                         size="large"
                                         edge="end"
