@@ -97,6 +97,7 @@ export default function SignUp() {
     const handleSentMail = () => {
         let rand = Math.round(Math.random() * 4000)
         setMail(rand)
+        console.log({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }, 998)
         try {
             LoginApi.sentMailConfirm({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }).then((res) => console.log(res, 444))
             CreateNotification.success('Thông báo', 'Đã gửi tới mail')
