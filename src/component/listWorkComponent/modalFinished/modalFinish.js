@@ -88,6 +88,7 @@ export default function NestedModal({ show, handleShow, data, dataInSever }) {
             Work_Api.update_postWork(filterById?._id, dataEditor).then((res) => {
                 if (res) {
                     CreateNotification.success('Thành công', 'Đã được cập nhật')
+                    handleShow(false)
                 }
             })
         } catch (error) {

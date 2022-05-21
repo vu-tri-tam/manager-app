@@ -56,6 +56,7 @@ import PrivateRouter from '../../privateRouter/privateRouter';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FadeMenuMobile from './toolTipMobile/toolTipMobile';
 import LoginApi from '../../../api/login/loginApi';
+import AccountMenu from '../../../common/popover/toolTipMenu';
 
 let drawerWidthProp = 235;
 // interface Props {
@@ -264,11 +265,14 @@ export default function ResponsiveDrawer(props) {
                     <Typography variant="h6" noWrap component="div">
                         {
                             navigate.pathname !== "/login-page" && navigate.pathname !== "/sign-up-page" ?
-                                <Search>
+
+                                <Search >
+
                                     <SearchIconWrapper>
                                         <SearchIcon />
                                     </SearchIconWrapper>
                                     <StyledInputBase
+                                        className='showSearch'
                                         placeholder="Search…"
                                         inputProps={{ 'aria-label': 'search' }}
                                     />
@@ -277,15 +281,12 @@ export default function ResponsiveDrawer(props) {
 
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
-
                     <Typography variant="h6" noWrap component="div">
-
                         {
                             navigate.pathname !== "/login-page" && navigate.pathname !== "/sign-up-page" ?
-
                                 <Box sx={{ position: 'relative' }} className="appBarIcons">
-                                    {/* <Box sx={{ display: { md: 'flex' } }} > */}
-                                    <Tooltip idUser={authLogin?.Auth} />
+                                    <AccountMenu idUser={authLogin?.Auth} />
+                                    {/* <Tooltip idUser={authLogin?.Auth} /> */}
                                     <IconButton
                                         size="large"
                                         edge="end"
@@ -295,18 +296,9 @@ export default function ResponsiveDrawer(props) {
                                         onClick={handleProfileMenuOpen}
                                         color="inherit"
                                     >
-
-
                                     </IconButton>
-                                    {/* </Box> */}
-
-
                                 </Box> : null
-
-
-
                         }
-
                         {
                             navigate.pathname !== "/login-page" && navigate.pathname !== "/sign-up-page" ?
                                 <div>
@@ -326,12 +318,14 @@ export default function ResponsiveDrawer(props) {
                     {
                         authLogin && authLogin.Auth !== null ?
                             <Dropdown className="d-inline mx-2">
-                                <Dropdown.Toggle id="dropdown-autoclose-true">
+                                <Dropdown.Toggle id="dropdown-autoclose-true" className='btn-info'>
                                     <AccountCircle />{user && user[0]?.userName}
                                 </Dropdown.Toggle>
 
+
                                 <Dropdown.Menu>
                                     <Dropdown.Item href="#"><ExitToAppIcon className='mx-2' />Setting Account</Dropdown.Item>
+                                    {/* <Dropdown.Item href="#"><ExitToAppIcon className='mx-2 showDotIcon' />Liên hệ</Dropdown.Item> */}
                                     <Dropdown.Item href="#">
                                         {
                                             authLogin && authLogin.Auth !== null ? <Link to='/login-page' onClick={() => handleLogout()}><SettingsIcon className='mx-2' />Logout</Link> : <Link to='/login-page'><SettingsIcon className='mx-2' />Login</Link>

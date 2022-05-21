@@ -166,7 +166,7 @@ export default function FormPropsTextFields() {
                 </Box>
 
                 <Stack direction="row" spacing={2} className="styleReponsive">
-                    <Button variant="contained" onClick={handleConfirm} disabled={!state?.name_work}><SaveIcon />Xác nhận</Button>
+                    <Button className="bg-success text-white" onClick={handleConfirm} disabled={!state?.name_work}><SaveIcon />Xác nhận</Button>
                 </Stack>
             </div>
 

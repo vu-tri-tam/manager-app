@@ -7,7 +7,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
@@ -16,7 +15,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Badge from '@mui/material/Badge';
-import Work_Api from '../../../../api/api_work/api_work';
+import Work_Api from '../../api/api_work/api_work';
 
 export default function AccountMenu({ idUser }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -56,8 +55,8 @@ export default function AccountMenu({ idUser }) {
     }, [work])
     return (
         <React.Fragment>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }} className="showDotIcon">
-                {/* <Typography sx={{ minWidth: 100 }} >Liên hệ</Typography> */}
+            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+                <Typography sx={{ minWidth: 100 }} >Liên hệ</Typography>
                 <Tooltip title="Thông báo công việc">
                     <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={'!'} color="error">
@@ -66,7 +65,6 @@ export default function AccountMenu({ idUser }) {
                     </IconButton>
                 </Tooltip>
             </Box>
-
             <Menu
                 anchorEl={anchorEl}
                 id="account-menu"
@@ -90,7 +88,7 @@ export default function AccountMenu({ idUser }) {
                             display: 'block',
                             position: 'absolute',
                             top: 0,
-                            right: "26%",
+                            right: 14,
                             width: 10,
                             height: 10,
                             bgcolor: 'background.paper',
@@ -112,12 +110,6 @@ export default function AccountMenu({ idUser }) {
                 <MenuItem>
                     <div>
                         <strong><CheckCircleIcon color="success" /></strong> Bạn có {workFinised?.length} công việc đã hoàn thành
-
-                    </div>
-                </MenuItem>
-                <MenuItem>
-                    <div>
-                        <strong><CheckCircleIcon color="success" />Liên hệ</strong>
 
                     </div>
                 </MenuItem>

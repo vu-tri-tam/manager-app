@@ -185,7 +185,9 @@ a{
  .showDotIcon{
   display: none!important;
 }
-
+.showSearch{
+  display: block!important;
+}
 ::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(245, 245, 245, 0.3);
@@ -213,6 +215,9 @@ a{
  .showDotIcon{
    display: block!important;
  }
+ .showSearch{
+  display: none!important;
+}
  .showDrawer{
    display: none!important;
  }
