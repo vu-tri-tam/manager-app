@@ -273,7 +273,7 @@ export default function ResponsiveDrawer(props) {
                                     </SearchIconWrapper>
                                     <StyledInputBase
                                         className='showSearch'
-                                        placeholder="Search…"
+                                        placeholder="Tìm kiếm…"
                                         inputProps={{ 'aria-label': 'search' }}
                                     />
                                 </Search> : null
@@ -324,11 +324,11 @@ export default function ResponsiveDrawer(props) {
 
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#"><ExitToAppIcon className='mx-2' />Setting Account</Dropdown.Item>
+                                    <Dropdown.Item href="#"><ExitToAppIcon className='mx-2' />Tài khoản</Dropdown.Item>
                                     {/* <Dropdown.Item href="#"><ExitToAppIcon className='mx-2 showDotIcon' />Liên hệ</Dropdown.Item> */}
                                     <Dropdown.Item href="#">
                                         {
-                                            authLogin && authLogin.Auth !== null ? <Link to='/login-page' onClick={() => handleLogout()}><SettingsIcon className='mx-2' />Logout</Link> : <Link to='/login-page'><SettingsIcon className='mx-2' />Login</Link>
+                                            authLogin && authLogin.Auth !== null ? <Link to='/login-page' onClick={() => handleLogout()}><SettingsIcon className='mx-2' />Đăng xuất</Link> : <Link to='/login-page'><SettingsIcon className='mx-2' />Đăng nhập</Link>
                                         }
 
                                     </Dropdown.Item>
@@ -336,8 +336,8 @@ export default function ResponsiveDrawer(props) {
                                 </Dropdown.Menu>
                             </Dropdown> :
                             <Box sx={{ display: { md: 'flex' } }}>
-                                <button className='btn bg-white'> <Link to='/login-page' ><SettingsIcon className='mx-2' />Login</Link> </button>
-                                <button className='btn bg-btn mx-2'><Link to='/sign-up-page' >register</Link></button>
+                                <button className='btn bg-white'> <Link to='/login-page' ><SettingsIcon className='mx-2' />Đăng nhập</Link> </button>
+                                <button className='btn bg-btn mx-2'><Link to='/sign-up-page' >Đăng ký</Link></button>
                             </Box>
 
                     }
