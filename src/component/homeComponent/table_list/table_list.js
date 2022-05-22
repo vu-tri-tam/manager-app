@@ -61,7 +61,6 @@ export default function BasicTable() {
     //     }
     // )
     // const productList = useSelector((state) => state?.todo_work);
-    console.log(dataWork, 'row')
     const authLogin = useSelector((state) => state?.auth?.auth);
     const dispatch = useDispatch();
 
@@ -251,18 +250,18 @@ export default function BasicTable() {
     }, [])
 
 
-    React.useEffect(() => {
-        const getAllData = async () => {
-            // console.log('vào đây r');
-            const today = new Date()
-            const convert = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate()
-            await Work_Api.getWorkByIdUser(authLogin?.Auth)?.then((res) =>
-                res?.data.finishPost.filter((ele) => ele.dateWorkToday === convert)
-            ).then((cc) => setData(cc))
-        }
-        getAllData()
-        // console.log('ok nha');
-    }, [startTime])
+    // React.useEffect(() => {
+    //     const getAllData = async () => {
+    //         // console.log('vào đây r');
+    //         const today = new Date()
+    //         const convert = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate()
+    //         await Work_Api.getWorkByIdUser(authLogin?.Auth)?.then((res) =>
+    //             res?.data.finishPost.filter((ele) => ele.dateWorkToday === convert)
+    //         ).then((cc) => setData(cc))
+    //     }
+    //     getAllData()
+    //     // console.log('ok nha');
+    // }, [startTime])
 
 
     React.useEffect(() => {
