@@ -20,6 +20,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '../../../common/popover/tooltip';
 import Badge from '@mui/material/Badge';
 import { loginOutForm } from '../../redux/feature/auth';
+import LoginIcon from '@mui/icons-material/Login';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import {
 
     Routes,
@@ -336,8 +338,8 @@ export default function ResponsiveDrawer(props) {
                                 </Dropdown.Menu>
                             </Dropdown> :
                             <Box sx={{ display: { md: 'flex' } }}>
-                                <button className='btn bg-white'> <Link to='/login-page' ><SettingsIcon className='mx-2' />Đăng nhập</Link> </button>
-                                <button className='btn bg-btn mx-2'><Link to='/sign-up-page' >Đăng ký</Link></button>
+                                <button className='btn bg-white'> <Link to='/login-page' ><LoginIcon />Đăng nhập</Link> </button>
+                                <button className='btn bg-btn mx-2'><Link to='/sign-up-page' ><AppRegistrationIcon />Đăng ký</Link></button>
                             </Box>
 
                     }

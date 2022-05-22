@@ -14,6 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LoginApi from '../../api/login/loginApi';
 import CreateNotification from '../../common/notification/notification';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import {
 
 
@@ -56,7 +58,7 @@ export default function SignUp() {
 
         // console.log(typeof (data));
         const registerUser = {
-            userName: `${data.get('firstName')} ${data.get('lastName')}`,
+            userName: `${data.get('firstName')}${data.get('lastName')}`,
             email: data.get('email'),
             password: data.get('password'),
         }
@@ -94,13 +96,19 @@ export default function SignUp() {
         // console.log(registerUser);
     };
 
-    const handleSentMail = () => {
+    const handleSentMail = (dataMail) => {
+
         let rand = Math.round(Math.random() * 4000)
         setMail(rand)
         console.log({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }, 998)
         try {
-            LoginApi.sentMailConfirm({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }).then((res) => console.log(res, 444))
-            CreateNotification.success('Thông báo', 'Đã gửi tới mail')
+            if (!dataMail) {
+                CreateNotification.error('Thông báo', 'Điền mail trước đã')
+            } else {
+                LoginApi.sentMailConfirm({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }).then((res) => console.log(res, 444))
+                CreateNotification.success('Thông báo', 'Đã gửi tới mail')
+            }
+
         } catch (error) {
             CreateNotification.error('Thông báo', 'Có lỗi xảy ra vui lòng thử lại')
         }
@@ -123,7 +131,7 @@ export default function SignUp() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign up
+                        Sign up to app manager
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
@@ -179,7 +187,7 @@ export default function SignUp() {
                                     name="confirm"
                                     autoComplete="email"
                                 />
-                                <Button className='btn bg-info text-white format-btn' onClick={() => handleSentMail()}>Gửi mã</Button>
+                                <Button className='btn bg-warning text-white format-btn' onClick={(e) => handleSentMail(e?.target.value)}><MailOutlineIcon /></Button>
                             </Grid>
                             {/* <Grid item xs={12}>
                                 <FormControlLabel
@@ -194,7 +202,7 @@ export default function SignUp() {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Đăng ký
+                            <AppRegistrationIcon className='mx-2' />   Đăng ký
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>

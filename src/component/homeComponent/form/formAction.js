@@ -92,7 +92,7 @@ export default function FormPropsTextFields() {
             {
                 openChooseTime ? <ModalChoose open={openChooseTime} handleOpen={handleOpenChoose} handleSubmit={handleSubmit} state={state} setState={setState} /> : null
             }
-            <Box sx={{ p: 1 }}>
+            <Box>
                 <h4>Kế hoạch ngày hôm nay</h4>
             </Box>
             <div className='flex-form'>

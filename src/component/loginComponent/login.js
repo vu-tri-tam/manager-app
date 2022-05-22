@@ -18,6 +18,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loginForm } from '../../component/redux/feature/auth';
 import jwt_decode from "jwt-decode";
 import Example from '../../common/loading/loading';
+import LoginIcon from '@mui/icons-material/Login';
+
 import {
 
 
@@ -171,7 +173,7 @@ export default function SignIn() {
                                     disabled={loadingLogin}
                                 >
 
-                                    Đăng nhập
+                                    <LoginIcon className='mx-2' /> Đăng nhập
 
                                 </Button>
                         }

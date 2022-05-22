@@ -13,7 +13,7 @@ export const authSlice = createSlice({
         },
         loginOutForm: (state) => {
             state.auth.Auth = null
-            console.log(state, 'state');
+            // console.log(state, 'state');
 
         }
 
