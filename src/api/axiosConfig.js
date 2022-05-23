@@ -6,7 +6,7 @@ import axios from "axios"
 
 const instance = axios.create({
     baseURL: 'https://manager-app-sever.herokuapp.com',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    headers: { "Access-Control-Allow-Origin": "*" }
 
 });
 
