@@ -1,4 +1,5 @@
 import * as React from 'react';
+import emailjs from '@emailjs/browser';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -45,6 +46,19 @@ export default function SignUp() {
     const [getEmail, setGetEmail] = React.useState({
         emailUser: ""
     })
+    // const form = React.useRef();
+
+    // const sendEmail = (e) => {
+    //     // e.preventDefault();
+    //     console.log(e, 'eee');
+    //     console.log(form, 'form');
+    //     emailjs.sendForm('service_wmacn8e', 'template_dvxbxws', form.current, 'ptAo4p6XaONqw8tkz')
+    //         .then((result) => {
+    //             console.log(result.text);
+    //         }, (error) => {
+    //             console.log(error.text);
+    //         });
+    // };
 
     React.useEffect(() => {
         LoginApi.getUserLogin()?.then((login) => setUserLogin(login?.data?.accessToken))
@@ -79,7 +93,7 @@ export default function SignUp() {
                             }
                         })
                     } else {
-                        CreateNotification.error('Thông báo', 'Mã xác nhận không đúng')
+                        CreateNotification.error('Thông báo', 'Kiểm tra lại mã xác nhận mail')
                     }
                 }
 
@@ -96,13 +110,12 @@ export default function SignUp() {
         // console.log(registerUser);
     };
 
-    const handleSentMail = (dataMail) => {
-
+    const handleSentMail = () => {
         let rand = Math.round(Math.random() * 4000)
         setMail(rand)
         console.log({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }, 998)
         try {
-            if (!dataMail) {
+            if (!getEmail.emailUser) {
                 CreateNotification.error('Thông báo', 'Điền mail trước đã')
             } else {
                 LoginApi.sentMailConfirm({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }).then((res) => console.log(res, 444))
@@ -178,6 +191,19 @@ export default function SignUp() {
                                     autoComplete="new-password"
                                 />
                             </Grid>
+                            {/* <Grid item xs={12} style={{ display: 'flex' }} ref={form}>
+                                <TextField
+
+                                    required
+                                    fullWidth
+                                    id="confirm"
+                                    label="Confirm email"
+                                    type="email"
+                                    name="user_email"
+                                    autoComplete="email"
+                                />
+                                <Button className='btn bg-warning text-white format-btn' onClick={() => sendEmail()}><MailOutlineIcon /></Button>
+                            </Grid> */}
                             <Grid item xs={12} style={{ display: 'flex' }}>
                                 <TextField
                                     required
@@ -187,7 +213,7 @@ export default function SignUp() {
                                     name="confirm"
                                     autoComplete="email"
                                 />
-                                <Button className='btn bg-warning text-white format-btn' onClick={(e) => handleSentMail(e?.target.value)}><MailOutlineIcon /></Button>
+                                <Button className='btn bg-warning text-white format-btn' onClick={() => handleSentMail()}><MailOutlineIcon /></Button>
                             </Grid>
                             {/* <Grid item xs={12}>
                                 <FormControlLabel
