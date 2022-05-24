@@ -13,7 +13,7 @@ const instance = axios.create({
 
 });
 instance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('user')} `;
-instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 // const decodeToken = (token) => {
 //     // console.log(token, 5555);
 //     // const dispatch = useDispatch()
