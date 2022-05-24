@@ -7,12 +7,13 @@ import axios from "axios"
 const instance = axios.create({
     baseURL: 'https://manager-app-sever.herokuapp.com',
     headers: {
-        "Access-Control-Allow-Origin": "https://manager-app-sever.herokuapp.com",
-        'Content-Type': 'application/json'
+        "Access-Control-Allow-Origin": "*"
+        // 'Content-Type': 'application/json'
     }
 
 });
-
+instance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('user')} `;
+instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 // const decodeToken = (token) => {
 //     // console.log(token, 5555);
 //     // const dispatch = useDispatch()
@@ -34,7 +35,7 @@ const instance = axios.create({
 // const headerToken = decodeToken(localStorage.getItem('user'))
 // console.log(headerToken, 666);
 
-instance.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('user')} `;
+
 
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
