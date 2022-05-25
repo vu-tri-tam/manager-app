@@ -157,7 +157,13 @@ export default function BasicTable() {
         if (data === "start") {
 
             await Work_Api?.update_startAt(id, { ...dataWork[0], startAt: new Date(), user: authLogin?.Auth });
-            await Work_Api.getWorkByIdUser(authLogin?.Auth)?.then((res) => setData(res?.data?.finishPost));//nè
+            const today = new Date()
+            const convert = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate()
+            // console.log(today, 'today');
+            await Work_Api.getWorkByIdUser(authLogin?.Auth)?.then((res) =>
+                res?.data.finishPost.filter((ele) => ele.dateWorkToday === convert)
+                // console.log(ele.dateWorkToday, 777)
+            ).then((cc) => setData(cc))
 
 
         }
@@ -250,18 +256,18 @@ export default function BasicTable() {
     }, [])
 
 
-    // React.useEffect(() => {
-    //     const getAllData = async () => {
-    //         // console.log('vào đây r');
-    //         const today = new Date()
-    //         const convert = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate()
-    //         await Work_Api.getWorkByIdUser(authLogin?.Auth)?.then((res) =>
-    //             res?.data.finishPost.filter((ele) => ele.dateWorkToday === convert)
-    //         ).then((cc) => setData(cc))
-    //     }
-    //     getAllData()
-    //     // console.log('ok nha');
-    // }, [startTime])
+    React.useEffect(() => {
+        const getAllData = async () => {
+            // console.log('vào đây r');
+            const today = new Date()
+            const convert = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate()
+            await Work_Api.getWorkByIdUser(authLogin?.Auth)?.then((res) =>
+                res?.data.finishPost.filter((ele) => ele.dateWorkToday === convert)
+            ).then((cc) => setData(cc))
+        }
+        getAllData()
+        // console.log('ok nha');
+    }, [startTime])
 
 
     React.useEffect(() => {

@@ -72,7 +72,9 @@ export default function CoundownMonent({ hours, minutes, id, setStart, data, use
             //parse milisecond sang dang ngay YYYY-MM-DDTHH:mm:ss.sssZ sau đó cắt chuỗi lấy dc h:i:s
 
             const a = ((new Date(response.startAt).getTime() + time - new Date().getTime()) / 1000).toString().slice(0, 2)
+
             if (a * 1 === 0) {
+                console.log(typeof (a), 'aa');
                 setStatus(true)
                 if (response?.notification === "true") {
                     Work_Api?.post_sendMail({ content: `Công việc ${response?.name_work} đã kết thúc vui lòng ghé thăm web để kiểm tra`, subject: "Kết thúc công việc", email: filterInfoUserById(infoUser) })
