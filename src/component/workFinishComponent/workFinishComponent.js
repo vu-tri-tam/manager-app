@@ -70,9 +70,9 @@ export default function WorkFinishComponent() {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const authLogin = useSelector((state) => state?.auth?.auth);
     const handleRowDateTime = (dateTime) => {
-        return dateTime?.map((res, id) => {
-            return `${res?.hours} giờ : ${res?.minutes} phút`
-        })
+
+        return `${dateTime?.hours} giờ : ${dateTime?.minutes} phút`
+
     }
 
     const rows = data && data?.map((res, idx) => {

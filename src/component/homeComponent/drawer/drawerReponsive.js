@@ -27,7 +27,9 @@ import {
     Routes,
     Route,
     Link,
+
     useLocation,
+    NavLink,
 
 } from "react-router-dom";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -60,6 +62,7 @@ import FadeMenuMobile from './toolTipMobile/toolTipMobile';
 import LoginApi from '../../../api/login/loginApi';
 import AccountMenu from '../../../common/popover/toolTipMenu';
 
+
 let drawerWidthProp = 235;
 // interface Props {
 //     /**
@@ -71,16 +74,28 @@ let drawerWidthProp = 235;
 
 export default function ResponsiveDrawer(props) {
     const { window } = props;
-    const theme = useTheme();
+
     const navigate = useLocation()
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [user, setUser] = React.useState([]);
-    const [colorActiveClick, setColor] = React.useState();
+
     const [open, setOpen] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const authLogin = useSelector((state) => state?.auth?.auth);
     const dispatch = useDispatch();
     let drawerWidth = React.useRef(drawerWidthProp);
+
+
+
+    const navLinkStyle = ({ isActive }) => ({
+        color: isActive ? 'white' : '',
+        backgroundColor: isActive ? 'rgb(223, 223, 223)' : '',
+        margin: isActive ? '1%' : '',
+        borderRadius: isActive ? '3px' : ''
+
+
+    })
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -102,9 +117,7 @@ export default function ResponsiveDrawer(props) {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -151,25 +164,19 @@ export default function ResponsiveDrawer(props) {
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
     }));
-    // const handleClick = (event) => {
-    //     setShow(!show);
-    //     setTarget(event.target);
-    // };
-    // const handleClick = (event) => {
-    //     setShow(!show);
-    //     setTarget(event.target);
-    // };
 
     React.useEffect(() => {
         const getUser = () => {
             LoginApi.getUserLogin()?.then((res) => res?.data?.accessToken.filter((ele) => ele._id === authLogin?.Auth)).then((elementFilter) => setUser(elementFilter))
 
         }
+
         getUser()
 
     }, [])
 
-    // console.log(drawerWidth.current, 'op');
+
+
     React.useEffect(() => {
 
         if (navigate.pathname !== "/login-page" || navigate.pathname !== "/sign-up-page") {
@@ -192,33 +199,24 @@ export default function ResponsiveDrawer(props) {
 
                 {
                     ListSiderBar.map((text, index) => (
-                        <Link to={navigate.pathname === "/login-page" ? "" : text?.path} onClick={() => setColor(index)} className={colorActiveClick === index ? "text-black" : ''}>
-                            <ListItem button key={text?.name}
-                                className={colorActiveClick === index ? "colorActive" : ''}
 
-                            >
-                                <ListItemIcon style={{ minWidth: "30px" }}>
-                                    {text.icon}
-                                </ListItemIcon>
-                                <ListItemText primary={text.name} />
-                            </ListItem>
-                        </Link>
-
-                    ))}
-            </List>
-            {/* <Divider /> */}
-            {/* <List>
-                {ListSiderBar2.map((text, index) => (
-                    <Link to={navigate.pathname === "/login-page" ? "" : text?.path} onClick={() => setColor(index)} className={colorActiveClick === index ? "text-black" : ''}>
-                        <ListItem button key={text?.className} className={colorActiveClick === index ? "colorActive" : ''}>
-                            <ListItemIcon>
+                        <NavLink key={text?.name}
+                            to={navigate.pathname === "/login-page" ? "" : text?.path}
+                            style={navLinkStyle}
+                            className="d-flex p-2"
+                        >
+                            <ListItemIcon style={{ minWidth: "30px" }}>
                                 {text.icon}
                             </ListItemIcon>
                             <ListItemText primary={text.name} />
-                        </ListItem>
-                    </Link>
-                ))}
-            </List> */}
+                        </NavLink>
+
+
+
+                    ))}
+
+            </List>
+
         </div>
     );
 
@@ -326,7 +324,7 @@ export default function ResponsiveDrawer(props) {
 
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#"><ExitToAppIcon className='mx-2' />Tài khoản</Dropdown.Item>
+                                    <Dropdown.Item href="#" ><Link to='/setting-account-page'><ExitToAppIcon className='mx-2' />Tài khoản</Link></Dropdown.Item>
                                     {/* <Dropdown.Item href="#"><ExitToAppIcon className='mx-2 showDotIcon' />Liên hệ</Dropdown.Item> */}
                                     <Dropdown.Item href="#">
                                         {
