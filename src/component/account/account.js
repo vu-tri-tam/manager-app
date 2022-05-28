@@ -47,8 +47,6 @@ export default function AccountComponent() {
                         <img src={user} className="rounded-circle avatar-lg img-thumbnail" alt="profileimage" />
                         <h3 className=""></h3>
                         <div className="mt-2">
-
-
                             <p className="text-muted"><strong><CircleSharpIcon color='success' fontSize='1rem' className='mx-2' />Đang hoạt động</strong> </p>
                             <p className="text-muted"><strong>Mã tài khoản: 00301321312</strong> </p>
                         </div>
@@ -87,12 +85,6 @@ export default function AccountComponent() {
 
                                     </div>
                             }
-
-
-
-
-
-
 
                         </div>
                         {/* <div className="row mt-3">
