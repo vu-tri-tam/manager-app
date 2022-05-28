@@ -115,7 +115,7 @@ export default function FormPropsTextFields() {
                     focused
                     onChange={(e) => handleSubmit('name_date', e?.target?.value)}
                 /> */}
-                <Box sx={{ minWidth: 220 }} className='textField'>
+                <Box sx={{ minWidth: "20%" }} className='textField'>
                     <FormControl fullWidth>
                         <InputLabel variant="standard" htmlFor="uncontrolled-native">
                             Nhận thông báo
@@ -137,7 +137,7 @@ export default function FormPropsTextFields() {
                         </NativeSelect>
                     </FormControl>
                 </Box>
-                <Box sx={{ minWidth: 220 }} className='textField'>
+                <Box sx={{ minWidth: "20%" }} className='textField'>
                     <FormControl fullWidth>
                         <InputLabel variant="standard" htmlFor="uncontrolled-native">
                             Loại công việc
@@ -158,16 +158,16 @@ export default function FormPropsTextFields() {
                         </NativeSelect>
                     </FormControl>
                 </Box>
-                <Box sx={{ minWidth: 150 }} className='textField'>
+                <Box sx={{ minWidth: "13%" }} className='textField'>
 
 
-                    <button type="button" className='btn btn-primary' onClick={() => setOpenChooseTime(true)}><AccessTimeSharpIcon />Chọn thời gian</button>
+                    <button type="button" className='btn btn-primary w-100' onClick={() => setOpenChooseTime(true)}><AccessTimeSharpIcon />Chọn thời gian</button>
 
                 </Box>
 
-                <Stack direction="row" spacing={2} className="styleReponsive">
-                    <Button className="bg-success text-white" onClick={handleConfirm} disabled={!state?.name_work}><SaveIcon />Xác nhận</Button>
-                </Stack>
+                <Box sx={{ minWidth: "13%" }} className='textField'>
+                    <Button className="bg-success text-white w-100" onClick={handleConfirm} disabled={!state?.name_work}><SaveIcon />Xác nhận</Button>
+                </Box>
             </div>
 
 

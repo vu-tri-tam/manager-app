@@ -22,8 +22,9 @@ import CircleSharpIcon from '@mui/icons-material/CircleSharp';
 import CreateNotification from '../../../common/notification/notification';
 import Swal from 'sweetalert2'
 import { useSelector, useDispatch } from 'react-redux';
-import { remove_alll } from '../../redux/feature/todo_work';
-import { loginOutForm } from '../../redux/feature/auth';
+import background from "../../../images/images.png"
+// import { remove_alll } from '../../redux/feature/todo_work';
+// import { loginOutForm } from '../../redux/feature/auth';
 // function createData(name, calories, fat, carbs, protein) {
 //     return { name, calories, fat, carbs, protein };
 // }
@@ -33,7 +34,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 // import CoundownEvent from '../../../common/countdown/coundownHook';
 import CoundownMonent from '../../../common/countdown/coundown-monent';
 import LoginApi from '../../../api/login/loginApi';
-import CoundownHook from '../../../common/countdown/coundownHook';
+// import CoundownHook from '../../../common/countdown/coundownHook';
 // const rows = [
 //    console.log(dataWork);
 //     // createData('Frozen yoghurt', "15/12/1         999", "Có", "Dễ", "Đang hoạt động"),
@@ -155,7 +156,6 @@ export default function BasicTable() {
         const dataPost = handleStatusWork(id, true)
         await Work_Api?.update_Work(id, { ...dataWork[0], status: dataPost, user: authLogin?.Auth })
         if (data === "start") {
-
             await Work_Api?.update_startAt(id, { ...dataWork[0], startAt: new Date(), user: authLogin?.Auth });
             const today = new Date()
             const convert = today.getFullYear() + '-' + "0" + (today.getMonth() + 1) + '-' + today.getDate()
@@ -307,7 +307,7 @@ export default function BasicTable() {
                                 <TableRow
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell align="center" colSpan={5}> Chưa có công việc ngày hôm nay :((</TableCell>
+                                    <TableCell align="center" colSpan={6}><img src={background} width="400px" height="200px" /></TableCell>
                                 </TableRow> :
                                 dataWork?.map((row, i) => {
 

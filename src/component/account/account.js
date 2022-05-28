@@ -43,7 +43,7 @@ export default function AccountComponent() {
         <section className="section pt-4">
             <div className="card shadow-sm mb-3" style={{ overflow: "hidden" }}>
                 <div className="row">
-                    <div className="col-lg-4 p-5 d-flex flex-column align-items-center justify-content-center" style={{ borderRight: "1px solid #f1f1f1" }}>
+                    <div className="col-lg-4 p-3 d-flex flex-column align-items-center justify-content-center" style={{ borderRight: "1px solid #f1f1f1" }}>
                         <img src={user} className="rounded-circle avatar-lg img-thumbnail" alt="profileimage" />
                         <h3 className=""></h3>
                         <div className="mt-2">
@@ -51,7 +51,7 @@ export default function AccountComponent() {
                             <p className="text-muted"><strong>Mã tài khoản: 00301321312</strong> </p>
                         </div>
                     </div>
-                    <div className="col-lg-8 p-5">
+                    <div className="col-lg-8 p-4">
                         <p className="text-muted"><i className="bi bi-person-fill"></i><strong style={{ fontSize: '1.1rem' }}> Thông tin cá nhân</strong></p>
                         <div className="row">
 
