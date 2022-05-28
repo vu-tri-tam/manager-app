@@ -61,7 +61,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FadeMenuMobile from './toolTipMobile/toolTipMobile';
 import LoginApi from '../../../api/login/loginApi';
 import AccountMenu from '../../../common/popover/toolTipMenu';
-
+import ContactsIcon from '@mui/icons-material/Contacts';
 
 let drawerWidthProp = 235;
 // interface Props {
@@ -194,25 +194,20 @@ export default function ResponsiveDrawer(props) {
                 <Link to='/'><DashboardIcon className='mx-2' />Hệ thống quản lý</Link>
             </List>
             <Divider />
-
             <List>
-
                 {
                     ListSiderBar.map((text, index) => (
 
                         <NavLink key={text?.name}
                             to={navigate.pathname === "/login-page" ? "" : text?.path}
                             style={navLinkStyle}
-                            className="d-flex p-2"
+                            className="d-flex p-2 align-items-center"
                         >
                             <ListItemIcon style={{ minWidth: "30px" }}>
                                 {text.icon}
                             </ListItemIcon>
                             <ListItemText primary={text.name} />
                         </NavLink>
-
-
-
                     ))}
 
             </List>
@@ -260,8 +255,6 @@ export default function ResponsiveDrawer(props) {
                                 <MenuIcon />
                             </IconButton> : <LockIcon />
                     }
-
-
                     <Typography variant="h6" noWrap component="div">
                         {
                             navigate.pathname !== "/login-page" && navigate.pathname !== "/sign-up-page" ?
@@ -307,14 +300,9 @@ export default function ResponsiveDrawer(props) {
                                 </div> : null
                         }
 
-
-
                         {/* <!-- Bottom tooltip--> */}
 
                     </Typography>
-
-
-
                     {
                         authLogin && authLogin.Auth !== null ?
                             <Dropdown className="d-inline mx-2">
@@ -341,12 +329,8 @@ export default function ResponsiveDrawer(props) {
                             </Box>
 
                     }
-
-
                 </Toolbar>
             </AppBar>
-
-
             <Box
                 component="nav"
                 sx={{ width: { sm: navigate.pathname !== "/login-page" && navigate.pathname !== "/sign-up-page" ? drawerWidth.current : "0%" }, flexShrink: { sm: 0 } }}
@@ -368,10 +352,6 @@ export default function ResponsiveDrawer(props) {
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth.current },
                     }}
                 >
-
-
-
-
                     {drawer}
 
                 </Drawer>
@@ -388,20 +368,12 @@ export default function ResponsiveDrawer(props) {
                 >
                     {drawer}
                 </Drawer>
-
-
             </Box>
             <Box
                 className='w-100'
                 component="main"
                 sx={{ flexGrow: 1, p: 3, width: { sm: navigate.pathname !== "/login-page" || navigate.pathname === "/sign-up-page" ? `calc(100% - ${drawerWidth.current}px)` : "100%" } }}
             >
-                {/* {
-
-                    !mobileOpen ? <Toolbar /> : null
-                } */}
-                {/* <Toolbar /> */}
-
 
                 <Routes>
                     {/* <PrivateRouter exact path="/" element={<Private Component={User} />} /> */}
