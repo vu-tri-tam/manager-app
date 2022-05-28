@@ -111,7 +111,6 @@ export default function AccountMenu({ idUser }) {
                 <MenuItem>
                     <div>
                         <strong><CheckCircleIcon color="success" /></strong> Bạn có {workFinised?.length} công việc đã hoàn thành
-
                     </div>
                 </MenuItem>
 

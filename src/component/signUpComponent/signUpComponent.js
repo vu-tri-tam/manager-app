@@ -113,7 +113,7 @@ export default function SignUp() {
     const handleSentMail = () => {
         let rand = Math.round(Math.random() * 4000)
         setMail(rand)
-        console.log({ content: rand, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }, 998)
+        console.log({ content: `Mã xác nhận: ${rand}`, email: getEmail.emailUser, subject: "Xác nhận đăng ký tài khoản" }, 998)
         try {
             if (!getEmail.emailUser) {
                 CreateNotification.error('Thông báo', 'Điền mail trước đã')

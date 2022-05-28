@@ -76,7 +76,7 @@ export default function CoundownMonent({ hours, minutes, id, setStart, data, use
                 console.log(typeof (a), 'aa');
                 setStatus(true)
                 if (response?.notification === "true") {
-                    Work_Api?.post_sendMail({ content: `Công việc ${response?.name_work} đã kết thúc vui lòng ghé thăm website: <a href="https://manager-app.tk">Tại đây</a> để kiểm tra`, subject: "Kết thúc công việc", email: filterInfoUserById(infoUser) })
+                    Work_Api?.post_sendMail({ content: `Công việc ${response?.name_work} đã kết thúc vui lòng ghé thăm website: ${<a href="https://manager-app.tk">Tại đây</a>} để kiểm tra`, subject: "Kết thúc công việc", email: filterInfoUserById(infoUser) })
 
                 }
 
